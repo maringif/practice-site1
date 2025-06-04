@@ -1,0 +1,116 @@
+<header class="bg-white shadow items-center">
+  <!-- Top Section -->
+  <div class="flex justify-between pt-10 px-[5vw]">
+    <!-- Left Top -->
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <img src="../assets/images/vegetable.png" alt="Logo" class="w-10 h-10">
+        <div>
+          <h1 class="text-lg text-black font-bold font-fredoka">Foodmart</h1>
+          <p class="text-sm text-gray-400">Grocery Store</p>
+        </div>
+      </div>
+      <!-- Filter/Search Section -->
+      <!-- Dropdown with Alpine.js -->
+      <div class="wrap flex items-center px-[25px] py-[4px] ml-16 space-x-[25px] bg-gray-100 rounded-sm">
+        <!-- Category Dropdown -->
+        <li x-data="{ open: false }" class="relative list-none">
+          <button @click="open = !open" 
+                  class="flex items-center font-bold text-gray-700 hover:text-gray-900">
+            All categories
+            <svg class="mr-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 10l5 5 5-5H7z"/>
+            </svg>
+          </button>
+          <ul x-show="open" @click.away="open = false" class="absolute bg-white">
+            <li><a href="products.html?category=fruits-veges" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fruits & Veges</a></li>
+            <li><a href="products.html?category=breads-sweets" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Breads & Sweets</a></li>
+            <li><a href="products.html?category=wine-drinks" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Wine Drinks</a></li>
+            <li><a href="products.html?category=oil-ghee" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Oil & Ghee</a></li>
+            <li><a href="products.html?category=raw-meat" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Raw Meat</a></li>
+            <li><a href="products.html?category=natural-herbs" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Natural Herbs</a></li>
+            <li><a href="products.html?category=seafood" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Seafood</a></li>
+            <li><a href="products.html?category=non-alcoholic-drinks" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Non-Alcoholic Drinks</a></li>
+            <li><a href="products.html?category=seasonings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Seasonings</a></li>
+            <li><a href="products.html?category=snacks-confectionery" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Snacks & Confectionery</a></li>
+            <li><a href="products.html?category=dairy-products" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dairy Products</a></li>
+          </ul>
+        </li>
+        <!-- Divider -->
+        <div class="inline-block items-center w-px h-6 mt-3 bg-gray-300"></div>
+        <!-- Search Form -->
+        <form action="product.html" method="GET">
+          <input type="text" 
+                 name="search" 
+                 placeholder="Search for more than 20,000 products" 
+                 class="bg-gray-100 w-[25vw] py-[4px]" />
+          <button type="submit"></button>
+        </form>
+        <div class="box-b relative inline-block after:content-[''] after:absolute after:w-8 after:h-8 after:top-1/2 after:-translate-y-1/2 after:right-[10px] after:bg-[url(../assets/images/search.png)] after:bg-no-repeat 
+                    after:bg-center after:bg-[length:auto_100%]">
+          <!-- Search Results -->
+          <ul id="search-results" class="absolute bg-white border mt-2 p-2 shadow-md rounded w-full z-20"></ul>
+        </div>
+      </div>
+    </div>
+    <!-- Right Top -->
+    <div class="ml-4 flex items-center space-x-6 flex-shrink-0">
+      <!-- Support Phone -->
+      <div class="text-right">
+        <p class="text-sm text-gray-400">For Support?</p>
+        <p>+980-34984089</p>
+      </div>
+      <!-- Account Icon -->
+      <div class="relative">
+        <img src="../assets/images/cart.svg" alt="Cart" class="w-6 h-6">
+        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+      </div>
+      <!-- Favorites Icon -->
+      <div class="relative">
+        <img src="../assets/images/cart.svg" alt="Favorite" class="w-6 h-6">
+        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+      </div>
+      <!-- Cart Icon -->
+      <div class="relative">
+        <img src="../assets/images/cart.svg" alt="Cart" class="w-6 h-6">
+        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+      </div>
+      <div>
+        <p class="text-sm text-gray-400">Your Cart</p>
+        <p>$1290.00</p>
+      </div>
+    </div>
+  </div>
+  <!-- Divider -->
+  <div class="h-px mt-5 bg-gray-100"></div>
+  <!-- Lower Header Section -->
+  <div class="flex justify-between items-center py-3 px-[5vw]">
+    <!-- Shop By Departments Button -->
+    <div>
+      <button
+        @click="open = !open"
+        class="flex items-center text-gray-700"
+      >
+        Shop By Departments
+        <svg class="mr-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 10l5 5 5-5H7z"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Navigation -->
+    <nav class="hidden md:flex justify-center py-2">
+      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Home</a>
+      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Shop</a>
+      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Pages</a>
+      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Services</a>
+      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Blogs</a>
+      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Contact</a>
+      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Offers</a>
+    </nav>
+    <!-- Coupon Code -->
+    <div class="flex items-center">
+      <img src="../assets/images/cart.svg" alt="Coupon" class="w-6 h-6">
+      <p>Get Your Coupon Code</p>
+    </div>
+  </div>
+</header>
