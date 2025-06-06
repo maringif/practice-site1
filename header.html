@@ -1,52 +1,62 @@
+<!-- Alpine.js CDN（bodyまたはhead内で読み込んでください） -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
 <header class="bg-white shadow items-center">
   <!-- Top Section -->
-  <div class="flex justify-between pt-10 px-[5vw]">
+  <div class="flex flex-col md:flex-row justify-between pt-10 px-[5vw]">
     <!-- Left Top -->
-    <div class="flex justify-between items-center">
-      <div class="flex items-center space-x-4">
+    <div class="flex flex-col md:flex-row justify-between items-center w-full md:w-auto">
+      <div class="flex items-center space-x-4 mb-4 md:mb-0">
         <img src="../assets/images/vegetable.png" alt="Logo" class="w-10 h-10">
         <div>
           <h1 class="text-lg text-black font-bold font-fredoka">Foodmart</h1>
-          <p class="text-sm text-gray-400">Grocery Store</p>
+          <p class="text-xs text-gray-400">Grocery Store</p>
         </div>
       </div>
       <!-- Filter/Search Section -->
       <!-- Dropdown with Alpine.js -->
-      <div class="wrap flex items-center px-[25px] py-[4px] ml-16 space-x-[25px] bg-gray-100 rounded-sm">
+      <div class="wrap flex items-center px-2 py-2 md:px-[1vw] md:py-[1vh] md:ml-[3vw] space-x-2 md:space-x-[1vw] bg-gray-100 rounded-md w-full md:w-auto mt-2 md:mt-0">
         <!-- Category Dropdown -->
-        <li x-data="{ open: false }" class="relative list-none">
-          <button @click="open = !open" 
-                  class="flex items-center font-bold text-gray-700 hover:text-gray-900">
+        <div x-data="{ open: false }" class="relative list-none">
+          <button @click="open = !open"
+                  class="flex items-center font-bold text-gray-700 hover:text-gray-900 text-xs md:text-base"
+                  type="button">
             All categories
-            <svg class="mr-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
               <path d="M7 10l5 5 5-5H7z"/>
             </svg>
           </button>
-          <ul x-show="open" @click.away="open = false" class="absolute bg-white">
-            <li><a href="products.html?category=fruits-veges" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fruits & Veges</a></li>
-            <li><a href="products.html?category=breads-sweets" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Breads & Sweets</a></li>
-            <li><a href="products.html?category=wine-drinks" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Wine Drinks</a></li>
-            <li><a href="products.html?category=oil-ghee" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Oil & Ghee</a></li>
-            <li><a href="products.html?category=raw-meat" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Raw Meat</a></li>
-            <li><a href="products.html?category=natural-herbs" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Natural Herbs</a></li>
-            <li><a href="products.html?category=seafood" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Seafood</a></li>
-            <li><a href="products.html?category=non-alcoholic-drinks" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Non-Alcoholic Drinks</a></li>
-            <li><a href="products.html?category=seasonings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Seasonings</a></li>
-            <li><a href="products.html?category=snacks-confectionery" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Snacks & Confectionery</a></li>
-            <li><a href="products.html?category=dairy-products" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dairy Products</a></li>
+          <ul x-show="open" @click.away="open = false" x-transition
+              class="absolute bg-white z-30 left-0 min-w-[180px] mt-2 rounded shadow-md border">
+            <li><a href="product.html?category=Fruits%20%26%20Veges" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Fruits &amp; Veges</a></li>
+            <li><a href="product.html?category=Breads%20%26%20Sweets" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Breads &amp; Sweets</a></li>
+            <li><a href="product.html?category=Wine%20Drinks" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Wine Drinks</a></li>
+            <li><a href="product.html?category=Oil%20%26%20Ghee" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Oil &amp; Ghee</a></li>
+            <li><a href="product.html?category=Raw%20Meat" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Raw Meat</a></li>
+            <li><a href="product.html?category=Natural%20Herbs" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Natural Herbs</a></li>
+            <li><a href="product.html?category=Seafood" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Seafood</a></li>
+            <li><a href="product.html?category=Non-Alcoholic%20Drinks" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Non-Alcoholic Drinks</a></li>
+            <li><a href="product.html?category=Seasonings" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Seasonings</a></li>
+            <li><a href="product.html?category=Snacks%20%26%20Confectionery" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Snacks &amp; Confectionery</a></li>
+            <li><a href="product.html?category=Dairy%20Products" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Dairy Products</a></li>
           </ul>
-        </li>
+        </div>
         <!-- Divider -->
-        <div class="inline-block items-center w-px h-6 mt-3 bg-gray-300"></div>
-        <!-- Search Form -->
-        <form action="product.html" method="GET">
-          <input type="text" 
-                 name="search" 
-                 placeholder="Search for more than 20,000 products" 
-                 class="bg-gray-100 w-[25vw] py-[4px]" />
+        <div class="inline-block items-center w-[1px] h-6 md:h-[3vh] bg-gray-300"></div>
+        <!-- サジェストや検索候補で使うTailwindクラスを明示する -->
+        <div class="block px-2 py-1 hover:bg-gray-100 hidden absolute bg-white border mt-2 p-2 shadow-md rounded w-full z-20"></div>
+        
+        <form action="product.html" method="GET" class="flex-1 relative">
+          <input type="text"
+                 id="search-input"
+                 name="search"
+                 autocomplete="off"
+                 placeholder="Search for more than 20,000 products"
+                 class="bg-gray-100 w-full md:w-[25vw] text-xs md:text-base" />
           <button type="submit"></button>
+          <ul id="search-results" class="absolute bg-white border mt-2 p-2 shadow-md rounded w-full z-20 hidden"></ul>
         </form>
-        <div class="box-b relative inline-block after:content-[''] after:absolute after:w-8 after:h-8 after:top-1/2 after:-translate-y-1/2 after:right-[10px] after:bg-[url(../assets/images/search.png)] after:bg-no-repeat 
+        <div class="box-b relative inline-block after:content-[''] after:absolute after:w-8 after:h-8 after:top-1/2 after:-translate-y-1/2 after:right-[10px] after:bg-[url(../assets/images/search.png)] after:bg-no-repeat
                     after:bg-center after:bg-[length:auto_100%]">
           <!-- Search Results -->
           <ul id="search-results" class="absolute bg-white border mt-2 p-2 shadow-md rounded w-full z-20"></ul>
@@ -54,63 +64,100 @@
       </div>
     </div>
     <!-- Right Top -->
-    <div class="ml-4 flex items-center space-x-6 flex-shrink-0">
+    <div class="flex items-center flex-shrink-0 mt-6 md:mt-0">
       <!-- Support Phone -->
-      <div class="text-right">
-        <p class="text-sm text-gray-400">For Support?</p>
-        <p>+980-34984089</p>
+      <div class="text-right mr-4">
+        <p class="text-xs md:text-sm text-gray-400">For Support?</p>
+        <p class="text-base md:text-lg">+980-34984089</p>
       </div>
-      <!-- Account Icon -->
-      <div class="relative">
-        <img src="../assets/images/cart.svg" alt="Cart" class="w-6 h-6">
-        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+      <!-- Icons -->
+      <div class="flex justify-between w-32 md:w-[11vw] mr-2 md:mr-[1vw] ml-2 md:ml-[4vw]">
+        <!-- Account Icon -->
+        <!-- Account Icon -->
+        <a href="account.html" class="relative block">
+          <!-- Gray circular background -->
+          <span class="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full flex items-center justify-center">
+            <img src="../assets/images/cart.svg" alt="Cart" class="w-5 h-5 md:w-6 md:h-6" />
+          </span>
+        </a>
+        <!-- Favorites Icon -->
+        <div class="relative">
+          <span class="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full flex items-center justify-center">
+            <img src="../assets/images/cart.svg" alt="Cart" class="w-5 h-5 md:w-6 md:h-6" />
+          </span>
+          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 md:w-5 md:h-5 flex items-center justify-center">2</span>
+        </div>
+        <!-- Cart Icon -->
+        <div class="relative">
+          <span class="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full flex items-center justify-center">
+            <img src="../assets/images/cart.svg" alt="Cart" class="w-5 h-5 md:w-6 md:h-6" />
+          </span>
+          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 md:w-5 md:h-5 flex items-center justify-center">2</span>
+        </div>
       </div>
-      <!-- Favorites Icon -->
-      <div class="relative">
-        <img src="../assets/images/cart.svg" alt="Favorite" class="w-6 h-6">
-        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
-      </div>
-      <!-- Cart Icon -->
-      <div class="relative">
-        <img src="../assets/images/cart.svg" alt="Cart" class="w-6 h-6">
-        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
-      </div>
-      <div>
-        <p class="text-sm text-gray-400">Your Cart</p>
-        <p>$1290.00</p>
+      <div class="hidden md:block">
+        <p class="text-xs md:text-sm text-gray-400">Your Cart</p>
+        <p class="text-xs md:text-base">$1290.00</p>
       </div>
     </div>
   </div>
   <!-- Divider -->
   <div class="h-px mt-5 bg-gray-100"></div>
   <!-- Lower Header Section -->
-  <div class="flex justify-between items-center py-3 px-[5vw]">
-    <!-- Shop By Departments Button -->
-    <div>
+  <div class="flex flex-col md:flex-row justify-between items-center py-3 px-[5vw]">
+    <!-- Lower Left -->
+    <div class="flex flex-col md:flex-row items-center md:justify-between w-full md:w-[53.25vw] mb-3 md:mb-0">
+      <!-- Shop By Departments Button -->
+      <div x-data="{ open: false }" class="relative inline-block">
+        <button
+          @click="open = !open"
+          class="flex items-center text-gray-700 text-xs md:text-sm"
+          type="button"
+        >
+          Shop By Departments
+          <svg class="mr-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 10l5 5 5-5H7z"/>
+          </svg>
+        </button>
+        <!-- ここにShop By Departments用のドロップダウンを追加したい場合はulなどを追加 -->
+      </div>
+      <!-- Navigation -->
+      <nav class="flex flex-wrap md:flex-nowrap justify-center py-1 md:py-2 gap-1 md:gap-0">
+        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Home</a>
+        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Shop</a>
+        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Pages</a>
+        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Services</a>
+        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Blogs</a>
+        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Contact</a>
+        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Offers</a>
+      </nav>
+    </div>
+    <!-- Lower Right -->
+    <div class="flex items-center mt-2 md:mt-0" x-data="{ show: false }">
+      <img src="../assets/images/cart.svg" alt="Coupon" class="w-5 h-5 md:w-6 md:h-6">
       <button
-        @click="open = !open"
-        class="flex items-center text-gray-700"
+        type="button"
+        class="ml-2 text-xs md:text-base focus:outline-none"
+        @click="show = true"
       >
-        Shop By Departments
-        <svg class="mr-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 10l5 5 5-5H7z"/>
-        </svg>
+        Get Your Coupon Code
       </button>
-    </div>
-    <!-- Navigation -->
-    <nav class="hidden md:flex justify-center py-2">
-      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Home</a>
-      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Shop</a>
-      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Pages</a>
-      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Services</a>
-      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Blogs</a>
-      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Contact</a>
-      <a href="#" class="text-gray-600 hover:bg-orange-400 px-5 py-1 rounded-md">Offers</a>
-    </nav>
-    <!-- Coupon Code -->
-    <div class="flex items-center">
-      <img src="../assets/images/cart.svg" alt="Coupon" class="w-6 h-6">
-      <p>Get Your Coupon Code</p>
-    </div>
+      <!-- モーダルはbuttonの外に記述！！ -->
+      <div
+        x-show="show"
+        x-transition
+        @click.away="show = false"
+        class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30"
+        style="display: none;"
+      >
+        <div class="bg-white rounded-lg shadow-lg p-8 max-w-xs w-full text-center" @click.stop>
+          <h2 class="text-lg font-bold mb-2">Your Coupon Code</h2>
+          <p class="text-xl font-mono mb-4 text-blue-600 select-all">FOOD2025</p>
+          <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" @click="show = false">
+            Close
+          </button>
+        </div>
+      </div>
+  </div>
   </div>
 </header>

@@ -2,8 +2,10 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FoodMart - オーガニックフード</title>
+  <title>Products | Fruits &amp; Veges</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-white font-sans text-gray-800 w-full">
   <div class="font-sans">
@@ -16,7 +18,80 @@
         document.getElementById("header-placeholder").innerHTML = data;
       });
     </script>
-    <!-- Product Showcase Section -->
+    <!-- Product Showcase -->
+    <section class="bg-yellow-100 py-24 px-[5vw]">
+      <div class="grid grid-cols-10 grid-rows-2 gap-[1.5vw]">
+        <!-- Product Showcase Left (Slider) -->
+        <section class="relative col-span-6 row-span-2 h-full w-full overflow-hidden bg-[#E5F2F9]">
+          <div id="slider" class="flex h-full w-full transition-transform duration-700 ease-in-out" style="width: 300%;">
+            <!-- Slide 1 -->
+            <div class="w-full h-full flex-shrink-0 flex items-center justify-between px-16 py-16 bg-[#E5F2F9]">
+              <div>
+                <div class="text-orange-400 mb-2 font-sans text-base">100% Natural</div>
+                <h2 class="text-5xl font-bold mb-4 font-sans md:text-3xl">Fresh Smoothie & <br> Summer Juice</h2>
+                <p class="mb-6 text-gray-600">Best Selling Summer Juice With Natural Extracts.</p>
+                <button class="border border-gray-500 rounded-sm px-6 py-2">SHOP NOW</button>
+              </div>
+              <img src="smoothie.png" alt="Juice" class="w-64 h-auto">
+            </div>
+        
+            <!-- Slide 2 -->
+            <div class="w-full h-full flex-shrink-0 flex items-center justify-between px-16 py-16 bg-[#FFFDF9]">
+              <div>
+                <div class="text-orange-400 mb-2 font-sans text-base">100% Organic</div>
+                <h2 class="text-5xl font-bold mb-4">Tropical Mango <br> Smoothie</h2>
+                <p class="mb-6 text-gray-600">Sweet, rich & naturally grown mango.</p>
+                <button class="border border-gray-500 rounded-sm px-6 py-2">SHOP NOW</button>
+              </div>
+              <img src="mango.png" alt="Mango" class="w-64 h-auto">
+            </div>
+        
+            <!-- Slide 3 -->
+            <div class="w-full h-full flex-shrink-0 flex items-center justify-between px-16 py-16 bg-[#F9EFE5]">
+              <div>
+                <div class="text-orange-400 mb-2 font-sans text-base">100% Vegan</div>
+                <h2 class="text-5xl font-bold mb-4">Strawberry <br> Delight</h2>
+                <p class="mb-6 text-gray-600">No sugar added, just natural fruit flavor.</p>
+                <button class="border border-gray-500 rounded-sm px-6 py-2">SHOP NOW</button>
+              </div>
+              <img src="strawberry.png" alt="Strawberry" class="w-64 h-auto">
+            </div>
+          </div>
+        
+          <!-- ● Indicator -->
+          <div class="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex gap-2" id="indicators">
+            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+            <span class="w-3 h-3 rounded-full bg-white opacity-50"></span>
+            <span class="w-3 h-3 rounded-full bg-white opacity-50"></span>
+          </div>
+        </section>
+        
+        <!-- Product Showcase Right Top -->
+        <div class="col-span-4 h-[250px] flex flex-col justify-between bg-green-50 py-12 px-10">
+          <div>
+            <p class="font-sans text-base">20% Off</p>
+            <div class="flex items-center text-black">
+              <hr class="w-12">
+              <p class="font-sans tracking-widest text-xs uppercase">SALE</p>
+            </div>
+          </div>
+          <p class="text-3xl font-bold">Fruits & Vegetables</p>
+          <button class="w-fit">Shop The Category →</button>
+        </div>
+        <!-- Product Showcase Right Bottom -->
+        <div class="col-span-4 h-[250px] flex flex-col justify-between bg-[#F9EFE5] py-12 px-10">
+          <div>
+            <p class="font-sans text-base">15% Off</p>
+            <div class="flex items-center text-black">
+              <hr class="w-12">
+              <p class="font-sans tracking-widest text-xs uppercase">SALE</p>
+            </div>
+          </div>
+          <p class="text-3xl font-bold">Baked Products</p>
+          <button class="w-fit">Shop The Category →</button>
+        </div>
+      </div>
+    </section>
     <!-- Category Section -->
     <!-- Newly Arrived Brands Section -->
     <!-- Trending Products Section -->
@@ -26,6 +101,6 @@
     <!-- Just Landed Items Section -->
     <!-- Our Latest Articles Section -->
   </div>
-  <script type="module" src="\src\js\main.js"></script>
+  <script type="module" src=".\src\js\main.js"></script>
 </body>
 </html>
