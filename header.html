@@ -43,12 +43,10 @@
         </div>
         <!-- Divider -->
         <div class="inline-block items-center w-[1px] h-6 md:h-[3vh] bg-gray-300"></div>
-        <!-- サジェストや検索候補で使うTailwindクラスを明示する -->
-        <div class="block px-2 py-1 hover:bg-gray-100 hidden absolute bg-white border mt-2 p-2 shadow-md rounded w-full z-20"></div>
-        
+        <!-- 検索フォーム本体はindex.html側でID付きで設置するため、ここにはIDは不要 -->
         <form action="product.html" method="GET" class="flex-1 relative">
+          <!-- 検索フォーム本体はindex.html側でID付きで設置 -->
           <input type="text"
-                 id="search-input"
                  name="search"
                  autocomplete="off"
                  placeholder="Search for more than 20,000 products"

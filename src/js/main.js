@@ -296,4 +296,27 @@ export function initProductPage() {
         });
       }
     }
+    // slider
+    const slider = document.getElementById('slider');
+      console.log('slider:', slider); // これでnullならHTML構造やタイミングがおかしい
+    const indicators = document.querySelectorAll('#indicators span');
+    const slideCount = 3;
+    let current = 0;
+  
+    function goToSlide(idx) {
+      slider.style.transform = `translateX(-${idx * 100}%)`;
+      indicators.forEach((el, i) => {
+        el.classList.toggle('bg-yellow-400', i === idx);
+        el.classList.toggle('bg-white', i !== idx);
+        el.classList.toggle('opacity-50', i !== idx);
+      });
+    }
+  
+    setInterval(() => {
+      current = (current + 1) % slideCount;
+      goToSlide(current);
+    }, 3000);
+  
+    // 初期表示
+    goToSlide(current);
 }
