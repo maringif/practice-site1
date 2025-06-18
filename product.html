@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/dist/tailwind.min.css" rel="stylesheet">
+  <script type="module" src="./src/js/main.js"></script>
+  <script type="module" src="/src/js/index.js"></script>
 </head>
 <body>
   <div id="header-placeholder"></div>
@@ -19,7 +21,7 @@
         }
       });
   </script>
-  <div class="max-w-6xl mx-auto py-8">
+  <div class="mx-[10vw] py-8">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
       <h1 class="text-2xl font-bold">
         Products
@@ -28,13 +30,14 @@
       <span id="product-count" class="text-gray-500 text-sm"></span>
       <span id="product-range" class="text-gray-500 text-sm ml-4"></span>
     </div>
-    <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"></div>
-    <div id="pagination" class="mt-8 flex justify-center gap-2"></div>
+    <div class="w-full flex justify-center">
+      <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[2vh]"></div>
+    </div>
+    <div id="pagination" class="my-32 flex justify-center gap-2"></div>
   </div>
 
   <script type="module">
-    // main.jsのsearchProductsと同じ商品データ（ここにも定義するか、importで共有してください）
-    // ここでは直接定義します
+    // Product data defined directly, same as in searchProducts in main.js
     const searchProducts = [
       ...Array.from({length: 100}, (_, i) => ({ name: `Tomato ${i+1}`, category: "Fruits & Veges" })),
       ...Array.from({length: 100}, (_, i) => ({ name: `Cucumber ${i+1}`, category: "Fruits & Veges" })),
@@ -157,16 +160,14 @@
       ...Array.from({length: 100}, (_, i) => ({ name: `Evaporated Milk ${i+1}`, category: "Dairy Products" })),
       ...Array.from({length: 100}, (_, i) => ({ name: `Condensed Milk ${i+1}`, category: "Dairy Products" })),
     ];
-
-    // クエリ取得
+    // Retrieve query
     function getQueryParam(name) {
       return new URLSearchParams(window.location.search).get(name);
     }
     const search = getQueryParam('search');
     const category = getQueryParam('category');
     const page = parseInt(getQueryParam('page') || '1', 10);
-
-    // フィルタ処理
+    // Filtering process
     let filtered = searchProducts;
     if (search) {
       filtered = filtered.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
@@ -174,40 +175,65 @@
     if (category) {
       filtered = filtered.filter(p => p.category === category);
     }
-    // カテゴリ名表示
+    // Display category name
     document.getElementById('category-name').textContent = category ? category : '';
-
-    // ページング
+    // Paging
     const itemsPerPage = 20;
     const total = filtered.length;
     const pageCount = Math.max(1, Math.ceil(total / itemsPerPage));
     document.getElementById('product-count').textContent = `(${total} items)`;
-
-    // 商品表示
+    // Display products
     const grid = document.getElementById('product-grid');
     grid.innerHTML = '';
     const startIdx = (page - 1) * itemsPerPage;
     const endIdx = Math.min(page * itemsPerPage, total);
-
+    // Assign price, unit, and rating to products if not already set
     filtered.slice(startIdx, endIdx).forEach(product => {
+      // Temporary data: fallback to default if not provided
+      const price = product.price !== undefined ? product.price : 9.99;
+      const unit = product.unit || "1 UNIT";
+      const rating = product.rating || 4.5;
+      // Assign category to data-category attribute; make image alt and src dynamic
       grid.innerHTML += `
-        <div class="bg-white rounded shadow p-4">
-          <img src="https://placehold.co/200x200?text=${encodeURIComponent(product.name)}" alt="${product.name}" class="mb-2">
-          <div class="font-bold">${product.name}</div>
-          <div class="text-sm text-gray-500">Category: ${product.category}</div>
-        </div>
+        <li class="flex flex-col w-[calc(78vw/5)] min-w-[150px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="${product.category}">
+          <div class="relative">
+            <img src="../assets/images/juice.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">${product.name}</p>
+            <p class="text-xs md:text-sm">${unit} ★${rating}</p>
+            <div class="flex items-center space-x-2 mt-2">
+              <span class="text-gray-400 text-xs md:text-sm">$${price.toFixed(2)}</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2 group">
+              <p class="addToCartText text-gray-500 text-sm md:text-base transition-colors">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4 transition duration-200" id="cart-icon">
+            </button>
+          </div>
+        </li>
       `;
     });
-
-    // 1/100 のような形式で表示
+    // Display in format like 1/100
     const productRange = document.getElementById('product-range');
     if (total === 0) {
       productRange.textContent = '0/0';
     } else {
       productRange.textContent = `${startIdx + 1}〜${endIdx} / ${total}`;
     }
-
-    // ページネーション
+    // Pagination
     const pag = document.getElementById('pagination');
     pag.innerHTML = '';
     if (pageCount > 1) {
@@ -222,6 +248,5 @@
       }
     }
   </script>
-  <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>

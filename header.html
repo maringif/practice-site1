@@ -1,161 +1,141 @@
-<!-- Alpine.js CDN（bodyまたはhead内で読み込んでください） -->
+<!-- Alpine.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-<header class="bg-white shadow items-center">
+<header class="bg-white shadow">
   <!-- Top Section -->
-  <div class="flex flex-col md:flex-row justify-between pt-10 px-[5vw]">
+  <div class="flex flex-wrap md:flex-nowrap justify-between pt-10 px-[5vw] gap-4 items-center">
     <!-- Left Top -->
-    <div class="flex flex-col md:flex-row justify-between items-center w-full md:w-auto">
-      <div class="flex items-center space-x-4 mb-4 md:mb-0">
-        <img src="../assets/images/vegetable.png" alt="Logo" class="w-10 h-10">
+    <div class="flex flex-col md:flex-row justify-between items-center flex-1 min-w-0 gap-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-4 flex-shrink-0">
+        <img src="src/assets/header/groceries 1.png" alt="Logo" class="w-[52px] h-[52px]">
         <div>
-          <h1 class="text-lg text-black font-bold font-fredoka">Foodmart</h1>
+          <h1 class="text-[clamp(20px,2vw,32px)] text-black font-bold font-fredoka">Foodmart</h1>
           <p class="text-xs text-gray-400">Grocery Store</p>
         </div>
       </div>
-      <!-- Filter/Search Section -->
-      <!-- Dropdown with Alpine.js -->
-      <div class="wrap flex items-center px-2 py-2 md:px-[1vw] md:py-[1vh] md:ml-[3vw] space-x-2 md:space-x-[1vw] bg-gray-100 rounded-md w-full md:w-auto mt-2 md:mt-0">
+
+      <!-- Filter/Search -->
+      <div class="wrap flex items-center px-3 py-2 bg-gray-100 rounded-md w-full md:w-auto flex-wrap gap-2">
         <!-- Category Dropdown -->
-        <div x-data="{ open: false }" class="relative list-none">
+        <div x-data="{ open: false }" class="relative">
           <button @click="open = !open"
                   class="flex items-center font-bold text-gray-700 hover:text-gray-900 text-xs md:text-base"
                   type="button">
             All categories
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <svg class="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
               <path d="M7 10l5 5 5-5H7z"/>
             </svg>
           </button>
           <ul x-show="open" @click.away="open = false" x-transition
               class="absolute bg-white z-30 left-0 min-w-[180px] mt-2 rounded shadow-md border">
-            <li><a href="product.html?category=Fruits%20%26%20Veges" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Fruits &amp; Veges</a></li>
-            <li><a href="product.html?category=Breads%20%26%20Sweets" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Breads &amp; Sweets</a></li>
-            <li><a href="product.html?category=Wine%20Drinks" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Wine Drinks</a></li>
-            <li><a href="product.html?category=Oil%20%26%20Ghee" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Oil &amp; Ghee</a></li>
-            <li><a href="product.html?category=Raw%20Meat" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Raw Meat</a></li>
-            <li><a href="product.html?category=Natural%20Herbs" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Natural Herbs</a></li>
-            <li><a href="product.html?category=Seafood" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Seafood</a></li>
-            <li><a href="product.html?category=Non-Alcoholic%20Drinks" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Non-Alcoholic Drinks</a></li>
-            <li><a href="product.html?category=Seasonings" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Seasonings</a></li>
-            <li><a href="product.html?category=Snacks%20%26%20Confectionery" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Snacks &amp; Confectionery</a></li>
-            <li><a href="product.html?category=Dairy%20Products" class="block px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">Dairy Products</a></li>
+            <!-- Categories -->
+            <li><a href="product.html?category=Fruits%20%26%20Veges" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Fruits & Veges</a></li>
+            <li><a href="product.html?category=Breads%20%26%20Sweets" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Breads & Sweets</a></li>
+            <li><a href="product.html?category=Wine%20Drinks" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Wine Drinks</a></li>
+            <li><a href="product.html?category=Oil%20%26%20Ghee" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Oil & Ghee</a></li>
+            <li><a href="product.html?category=Raw%20Meat" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Raw Meat</a></li>
+            <li><a href="product.html?category=Natural%20Herbs" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Natural Herbs</a></li>
+            <li><a href="product.html?category=Seafood" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Seafood</a></li>
+            <li><a href="product.html?category=Non-Alcoholic%20Drinks" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Non-Alcoholic Drinks</a></li>
+            <li><a href="product.html?category=Seasonings" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Seasonings</a></li>
+            <li><a href="product.html?category=Snacks%20%26%20Confectionery" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Snacks & Confectionery</a></li>
+            <li><a href="product.html?category=Dairy%20Products" class="block px-4 py-2 text-xs md:text-sm hover:bg-gray-100">Dairy Products</a></li>
           </ul>
         </div>
+
         <!-- Divider -->
-        <div class="inline-block items-center w-[1px] h-6 md:h-[3vh] bg-gray-300"></div>
-        <!-- 検索フォーム本体はindex.html側でID付きで設置するため、ここにはIDは不要 -->
-        <form action="product.html" method="GET" class="flex-1 relative">
-          <!-- 検索フォーム本体はindex.html側でID付きで設置 -->
-          <input type="text"
-                 name="search"
-                 autocomplete="off"
-                 placeholder="Search for more than 20,000 products"
-                 class="bg-gray-100 w-full md:w-[25vw] text-xs md:text-base" />
-          <button type="submit"></button>
-          <ul id="search-results" class="absolute bg-white border mt-2 p-2 shadow-md rounded w-full z-20 hidden"></ul>
+        <div class="w-[1px] h-6 bg-gray-300 hidden md:block"></div>
+
+        <!-- Search Form -->
+        <form action="product.html" method="GET" class="flex-1 flex items-center space-x-2">
+          <input type="text" name="search" placeholder="Search for more than 20,000 products"
+                 class="bg-gray-100 w-full text-xs md:text-base p-1" />
+          <button type="submit">
+            <img src="src/assets/header/search.png" alt="Search" class="h-[2vh]">
+          </button>
         </form>
-        <div class="box-b relative inline-block after:content-[''] after:absolute after:w-8 after:h-8 after:top-1/2 after:-translate-y-1/2 after:right-[10px] after:bg-[url(../assets/images/search.png)] after:bg-no-repeat
-                    after:bg-center after:bg-[length:auto_100%]">
-          <!-- Search Results -->
-          <ul id="search-results" class="absolute bg-white border mt-2 p-2 shadow-md rounded w-full z-20"></ul>
-        </div>
       </div>
     </div>
+
     <!-- Right Top -->
-    <div class="flex items-center flex-shrink-0 mt-6 md:mt-0">
-      <!-- Support Phone -->
-      <div class="text-right mr-4">
-        <p class="text-xs md:text-sm text-gray-400">For Support?</p>
+    <div class="flex items-center flex-shrink-0 flex-wrap gap-4 md:gap-6">
+      <!-- Support -->
+      <div class="text-right mr-2">
+        <p class="text-xs text-gray-400">For Support?</p>
         <p class="text-base md:text-lg">+980-34984089</p>
       </div>
+
       <!-- Icons -->
-      <div class="flex justify-between w-32 md:w-[11vw] mr-2 md:mr-[1vw] ml-2 md:ml-[4vw]">
-        <!-- Account Icon -->
-        <!-- Account Icon -->
+      <div class="flex space-x-3 items-center">
+        <!-- Account -->
         <a href="account.html" class="relative block">
-          <!-- Gray circular background -->
           <span class="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full flex items-center justify-center">
-            <img src="../assets/images/cart.svg" alt="Cart" class="w-5 h-5 md:w-6 md:h-6" />
+            <img src="src/assets/header/login.png" alt="Account" class="h-[1.5vh]">
           </span>
         </a>
-        <!-- Favorites Icon -->
+
+        <!-- Favorites -->
         <div class="relative">
           <span class="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full flex items-center justify-center">
-            <img src="../assets/images/cart.svg" alt="Cart" class="w-5 h-5 md:w-6 md:h-6" />
+            <img src="src/assets/header/heart.png" alt="Favorites" class="h-[1.5vh]">
           </span>
-          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 md:w-5 md:h-5 flex items-center justify-center">2</span>
+          <span id="favorites-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">0</span>
         </div>
-        <!-- Cart Icon -->
+
+        <!-- Cart -->
         <div class="relative">
           <span class="w-8 h-8 md:w-12 md:h-12 bg-gray-300 rounded-full flex items-center justify-center">
-            <img src="../assets/images/cart.svg" alt="Cart" class="w-5 h-5 md:w-6 md:h-6" />
+            <img src="src/assets/header/cart.png" alt="Cart" class="h-[1.5vh]">
           </span>
-          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 md:w-5 md:h-5 flex items-center justify-center">2</span>
+          <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">0</span>
         </div>
       </div>
+
+      <!-- Cart Total -->
       <div class="hidden md:block">
-        <p class="text-xs md:text-sm text-gray-400">Your Cart</p>
-        <p class="text-xs md:text-base">$1290.00</p>
+        <p class="text-xs text-gray-400">Your Cart</p>
+        <p id="cart-total" class="text-xs md:text-base">¥0</p>
       </div>
     </div>
   </div>
+
   <!-- Divider -->
   <div class="h-px mt-5 bg-gray-100"></div>
-  <!-- Lower Header Section -->
-  <div class="flex flex-col md:flex-row justify-between items-center py-3 px-[5vw]">
-    <!-- Lower Left -->
-    <div class="flex flex-col md:flex-row items-center md:justify-between w-full md:w-[53.25vw] mb-3 md:mb-0">
-      <!-- Shop By Departments Button -->
-      <div x-data="{ open: false }" class="relative inline-block">
-        <button
-          @click="open = !open"
-          class="flex items-center text-gray-700 text-xs md:text-sm"
-          type="button"
-        >
+
+  <!-- Lower Header -->
+  <div class="flex flex-wrap justify-between items-center py-3 px-[5vw] gap-4">
+    <!-- Left -->
+    <div class="flex flex-wrap md:flex-nowrap items-center gap-4 flex-1 min-w-0">
+      <div x-data="{ open: false }" class="relative">
+        <button @click="open = !open" class="flex items-center text-gray-700 text-xs md:text-sm" type="button">
           Shop By Departments
-          <svg class="mr-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 10l5 5 5-5H7z"/>
-          </svg>
+          <svg class="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M7 10l5 5 5-5H7z"/></svg>
         </button>
-        <!-- ここにShop By Departments用のドロップダウンを追加したい場合はulなどを追加 -->
+        <!-- Optional dropdown here -->
       </div>
+
       <!-- Navigation -->
-      <nav class="flex flex-wrap md:flex-nowrap justify-center py-1 md:py-2 gap-1 md:gap-0">
-        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Home</a>
-        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Shop</a>
-        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Pages</a>
-        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Services</a>
-        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Blogs</a>
-        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Contact</a>
-        <a href="#" class="text-gray-600 hover:bg-orange-400 px-2 md:px-[1vw] py-1 md:py-[1vh] rounded-md text-xs md:text-base">Offers</a>
+      <nav class="flex flex-wrap gap-2 text-xs md:text-base">
+        <a href="index.html#" class="text-gray-600 hover:bg-orange-400 px-3 py-1 rounded-md">Home</a>
+        <a href="product.html#" class="text-gray-600 hover:bg-orange-400 px-3 py-1 rounded-md">Shop</a>
+        <a href="index.html#category-section" class="text-gray-600 hover:bg-orange-400 px-3 py-1 rounded-md">Services</a>
+        <a href="index.html#latest-articles" class="text-gray-600 hover:bg-orange-400 px-3 py-1 rounded-md">Blogs</a>
       </nav>
     </div>
-    <!-- Lower Right -->
-    <div class="flex items-center mt-2 md:mt-0" x-data="{ show: false }">
-      <img src="../assets/images/cart.svg" alt="Coupon" class="w-5 h-5 md:w-6 md:h-6">
-      <button
-        type="button"
-        class="ml-2 text-xs md:text-base focus:outline-none"
-        @click="show = true"
-      >
-        Get Your Coupon Code
-      </button>
-      <!-- モーダルはbuttonの外に記述！！ -->
-      <div
-        x-show="show"
-        x-transition
-        @click.away="show = false"
-        class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30"
-        style="display: none;"
-      >
+
+    <!-- Right -->
+    <div class="flex items-center gap-2" x-data="{ show: false }" @click="show = true">
+      <img src="src/assets/header/present.png" alt="Coupon" class="h-[2vh]" />
+      <button type="button" class="text-xs md:text-base">Get Your Coupon Code</button>
+      <div x-show="show" x-transition @click.away="show = false"
+           class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30" style="display: none;">
         <div class="bg-white rounded-lg shadow-lg p-8 max-w-xs w-full text-center" @click.stop>
           <h2 class="text-lg font-bold mb-2">Your Coupon Code</h2>
           <p class="text-xl font-mono mb-4 text-blue-600 select-all">FOOD2025</p>
-          <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" @click="show = false">
-            Close
-          </button>
+          <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" @click="show = false">Close</button>
         </div>
       </div>
-  </div>
+    </div>
   </div>
 </header>
