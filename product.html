@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/dist/tailwind.min.css" rel="stylesheet">
+  <script type="module" src="./src/js/main.js"></script>
+  <script type="module" src="/src/js/index.js"></script>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+        if(window.Alpine && window.Alpine.initTree){
+          Alpine.initTree(document.getElementById("header-placeholder"));
+        }
+      });
+  </script>
+  <div class="mx-[10vw] py-8">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+      <h1 class="text-2xl font-bold">
+        Products
+        <span id="category-name" class="ml-4 text-lg text-blue-600"></span>
+      </h1>
+      <span id="product-count" class="text-gray-500 text-sm"></span>
+      <span id="product-range" class="text-gray-500 text-sm ml-4"></span>
+    </div>
+    <div class="w-full flex justify-center">
+      <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[2vh]"></div>
+    </div>
+    <div id="pagination" class="my-32 flex justify-center gap-2"></div>
+  </div>
+<!-- JS -->
+  <script type="module">
+    // Product data defined directly, same as in searchProducts in main.js
+    const searchProducts = [
+      ...Array.from({length: 100}, (_, i) => ({ name: `Tomato ${i+1}`, category: "Fruits & Veges" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Cucumber ${i+1}`, category: "Fruits & Veges" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Lettuce ${i+1}`, category: "Fruits & Veges" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Carrot ${i+1}`, category: "Fruits & Veges" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Potato ${i+1}`, category: "Fruits & Veges" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Onion ${i+1}`, category: "Fruits & Veges" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Spinach ${i+1}`, category: "Fruits & Veges" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Broccoli ${i+1}`, category: "Fruits & Veges" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Pepper ${i+1}`, category: "Fruits & Veges" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Eggplant ${i+1}`, category: "Fruits & Veges" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `White Bread ${i+1}`, category: "Breads & Sweets" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Croissant ${i+1}`, category: "Breads & Sweets" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Baguette ${i+1}`, category: "Breads & Sweets" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Donut ${i+1}`, category: "Breads & Sweets" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Muffin ${i+1}`, category: "Breads & Sweets" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Danish ${i+1}`, category: "Breads & Sweets" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Brioche ${i+1}`, category: "Breads & Sweets" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Roll Cake ${i+1}`, category: "Breads & Sweets" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Pound Cake ${i+1}`, category: "Breads & Sweets" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Scone ${i+1}`, category: "Breads & Sweets" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `Red Wine ${i+1}`, category: "Wine Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `White Wine ${i+1}`, category: "Wine Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Rose Wine ${i+1}`, category: "Wine Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Sparkling Wine ${i+1}`, category: "Wine Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Port Wine ${i+1}`, category: "Wine Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Sherry ${i+1}`, category: "Wine Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Vermouth ${i+1}`, category: "Wine Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Sangria ${i+1}`, category: "Wine Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Mead ${i+1}`, category: "Wine Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Mulled Wine ${i+1}`, category: "Wine Drinks" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `Olive Oil ${i+1}`, category: "Oil & Ghee" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Sunflower Oil ${i+1}`, category: "Oil & Ghee" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Coconut Oil ${i+1}`, category: "Oil & Ghee" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Sesame Oil ${i+1}`, category: "Oil & Ghee" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Avocado Oil ${i+1}`, category: "Oil & Ghee" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Grapeseed Oil ${i+1}`, category: "Oil & Ghee" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Peanut Oil ${i+1}`, category: "Oil & Ghee" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Canola Oil ${i+1}`, category: "Oil & Ghee" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Butter Ghee ${i+1}`, category: "Oil & Ghee" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Clarified Butter ${i+1}`, category: "Oil & Ghee" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `Beef Steak ${i+1}`, category: "Raw Meat" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Chicken Breast ${i+1}`, category: "Raw Meat" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Pork Chop ${i+1}`, category: "Raw Meat" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Lamb Leg ${i+1}`, category: "Raw Meat" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Duck Breast ${i+1}`, category: "Raw Meat" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Turkey Thigh ${i+1}`, category: "Raw Meat" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Veal Cutlet ${i+1}`, category: "Raw Meat" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Goose Liver ${i+1}`, category: "Raw Meat" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Rabbit Meat ${i+1}`, category: "Raw Meat" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Venison ${i+1}`, category: "Raw Meat" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `Basil ${i+1}`, category: "Natural Herbs" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Mint ${i+1}`, category: "Natural Herbs" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Rosemary ${i+1}`, category: "Natural Herbs" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Thyme ${i+1}`, category: "Natural Herbs" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Oregano ${i+1}`, category: "Natural Herbs" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Sage ${i+1}`, category: "Natural Herbs" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Dill ${i+1}`, category: "Natural Herbs" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Coriander ${i+1}`, category: "Natural Herbs" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Parsley ${i+1}`, category: "Natural Herbs" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Tarragon ${i+1}`, category: "Natural Herbs" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `Salmon ${i+1}`, category: "Seafood" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Tuna ${i+1}`, category: "Seafood" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Shrimp ${i+1}`, category: "Seafood" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Crab ${i+1}`, category: "Seafood" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Lobster ${i+1}`, category: "Seafood" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Scallop ${i+1}`, category: "Seafood" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Oyster ${i+1}`, category: "Seafood" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Mussel ${i+1}`, category: "Seafood" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Cod ${i+1}`, category: "Seafood" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Squid ${i+1}`, category: "Seafood" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `Orange Juice ${i+1}`, category: "Non-Alcoholic Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Apple Juice ${i+1}`, category: "Non-Alcoholic Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Grape Juice ${i+1}`, category: "Non-Alcoholic Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Lemonade ${i+1}`, category: "Non-Alcoholic Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Iced Tea ${i+1}`, category: "Non-Alcoholic Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Cola ${i+1}`, category: "Non-Alcoholic Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Ginger Ale ${i+1}`, category: "Non-Alcoholic Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Mineral Water ${i+1}`, category: "Non-Alcoholic Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Tomato Juice ${i+1}`, category: "Non-Alcoholic Drinks" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Vegetable Juice ${i+1}`, category: "Non-Alcoholic Drinks" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `Salt ${i+1}`, category: "Seasonings" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Pepper ${i+1}`, category: "Seasonings" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Soy Sauce ${i+1}`, category: "Seasonings" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Vinegar ${i+1}`, category: "Seasonings" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Mustard ${i+1}`, category: "Seasonings" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Ketchup ${i+1}`, category: "Seasonings" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Mayonnaise ${i+1}`, category: "Seasonings" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Chili Powder ${i+1}`, category: "Seasonings" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Curry Powder ${i+1}`, category: "Seasonings" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Garlic Powder ${i+1}`, category: "Seasonings" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `Potato Chips ${i+1}`, category: "Snacks & Confectionery" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Popcorn ${i+1}`, category: "Snacks & Confectionery" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Pretzel ${i+1}`, category: "Snacks & Confectionery" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Chocolate Bar ${i+1}`, category: "Snacks & Confectionery" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Gummy Candy ${i+1}`, category: "Snacks & Confectionery" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Marshmallow ${i+1}`, category: "Snacks & Confectionery" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Cookie ${i+1}`, category: "Snacks & Confectionery" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Biscuit ${i+1}`, category: "Snacks & Confectionery" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Rice Cracker ${i+1}`, category: "Snacks & Confectionery" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Fruit Snack ${i+1}`, category: "Snacks & Confectionery" })),
+
+      ...Array.from({length: 100}, (_, i) => ({ name: `Milk ${i+1}`, category: "Dairy Products" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Yogurt ${i+1}`, category: "Dairy Products" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Butter ${i+1}`, category: "Dairy Products" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Cheese ${i+1}`, category: "Dairy Products" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Cream ${i+1}`, category: "Dairy Products" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Sour Cream ${i+1}`, category: "Dairy Products" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Cottage Cheese ${i+1}`, category: "Dairy Products" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Ice Cream ${i+1}`, category: "Dairy Products" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Evaporated Milk ${i+1}`, category: "Dairy Products" })),
+      ...Array.from({length: 100}, (_, i) => ({ name: `Condensed Milk ${i+1}`, category: "Dairy Products" })),
+    ];
+    // Retrieve query
+    function getQueryParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+    const search = getQueryParam('search');
+    const category = getQueryParam('category');
+    const page = parseInt(getQueryParam('page') || '1', 10);
+    // Filtering process
+    let filtered = searchProducts;
+    if (search) {
+      filtered = filtered.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
+    }
+    if (category) {
+      filtered = filtered.filter(p => p.category === category);
+    }
+    // Display category name
+    document.getElementById('category-name').textContent = category ? category : '';
+    // Paging
+    const itemsPerPage = 20;
+    const total = filtered.length;
+    const pageCount = Math.max(1, Math.ceil(total / itemsPerPage));
+    document.getElementById('product-count').textContent = `(${total} items)`;
+    // Display products
+    const grid = document.getElementById('product-grid');
+    grid.innerHTML = '';
+    const startIdx = (page - 1) * itemsPerPage;
+    const endIdx = Math.min(page * itemsPerPage, total);
+    // Assign price, unit, and rating to products if not already set
+    filtered.slice(startIdx, endIdx).forEach(product => {
+      // Temporary data: fallback to default if not provided
+      const price = product.price !== undefined ? product.price : 9.99;
+      const unit = product.unit || "1 UNIT";
+      const rating = product.rating || 4.5;
+      // Assign category to data-category attribute; make image alt and src dynamic
+      grid.innerHTML += `
+        <li class="flex flex-col w-[calc(78vw/5)] min-w-[150px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="${product.category}">
+          <div class="relative">
+            <img src="../assets/images/juice.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">${product.name}</p>
+            <p class="text-xs md:text-sm">${unit} ★${rating}</p>
+            <div class="flex items-center space-x-2 mt-2">
+              <span class="text-gray-400 text-xs md:text-sm">$${price.toFixed(2)}</span>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2 group">
+              <p class="addToCartText text-gray-500 text-sm md:text-base transition-colors">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4 transition duration-200" id="cart-icon">
+            </button>
+          </div>
+        </li>
+      `;
+    });
+    // Display in format like 1/100
+    const productRange = document.getElementById('product-range');
+    if (total === 0) {
+      productRange.textContent = '0/0';
+    } else {
+      productRange.textContent = `${startIdx + 1}〜${endIdx} / ${total}`;
+    }
+    // Pagination
+    const pag = document.getElementById('pagination');
+    pag.innerHTML = '';
+    if (pageCount > 1) {
+      if (page > 1) {
+        pag.innerHTML += `<a href="?search=${encodeURIComponent(search||'')}&category=${encodeURIComponent(category||'')}&page=${page-1}" class="px-3 py-1 bg-gray-200 rounded">&lt;</a>`;
+      }
+      for(let i = Math.max(1, page-2); i <= Math.min(pageCount, page+2); i++){
+        pag.innerHTML += `<a href="?search=${encodeURIComponent(search||'')}&category=${encodeURIComponent(category||'')}&page=${i}" class="px-3 py-1 rounded ${i===page?'bg-blue-500 text-white':'bg-gray-200'}">${i}</a>`;
+      }
+      if (page < pageCount) {
+        pag.innerHTML += `<a href="?search=${encodeURIComponent(search||'')}&category=${encodeURIComponent(category||'')}&page=${page+1}" class="px-3 py-1 bg-gray-200 rounded">&gt;</a>`;
+      }
+    }
+  </script>
+</body>
+</html>

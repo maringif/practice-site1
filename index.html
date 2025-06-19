@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Products | Fruits &amp; Veges</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script type="module" src="src/js/index.js"></script>
+</head>
+<body class="bg-white font-sans text-gray-800 w-full">
+  <div class="font-sans">
+    <!-- Header -->
+    <div id="header-placeholder" class="sticky top-0 z-50"></div>
+    <script>
+      fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+        });q 
+    </script>
+    <!-- Product Showcase -->
+      <!-- slider -->
+      <!-- <script type="module">
+        import { initProductPage } from './src/js/main.js';
+        document.addEventListener('DOMContentLoaded', initProductPage);
+      </script> -->
+    <section
+      class="py-[10vh] px-[5vw] bg-cover bg-center bg-no-repeat"
+      style="background-image: url('public/assets/product-showcase/rectangle23.png'), url('public/assets/product-showcase/rectangle3.png');"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-10 grid-rows-6 md:grid-rows-2 gap-[1.5vw] h-auto md:h-[70vh]">
+        <!-- Product Showcase Left (Slider) -->
+        <section class="relative col-span-1 md:col-span-6 row-span-3 md:row-span-2 w-full overflow-hidden mb-4 md:mb-0 h-[70vh]">
+          <div id="slider" class="flex h-full w-[300%] transition-transform duration-700 ease-in-out">
+            <!-- Slide 1 -->
+            <div 
+              class="relative flex-shrink-0 flex flex-col md:flex-row items-center h-full w-full md:w-1/3 px-[5vw] py-[5vh] md:px-[7vw] md:py-[14vh] bg-blue-100 rounded-[12px]"
+            >
+              <img 
+                src="src/assets/product-showcase/slide1.png"
+                class="absolute right-0 bottom-0 h-1/3 md:h-[52vh] max-h-[566px] min-h-[169.8px] w-auto max-w-[45%] object-contain z-10 pointer-events-none select-none" alt="">
+              <div class="flex flex-col justify-between h-full w-full z-20">
+                <div class="text-orange-400 mb-2 text-md md:text-2xl font-serif font-light">100% Natural</div>
+                <div>
+                  <h2 class="text-3xl md:text-5xl font-bold mb-2 md:mb-4 font-sans">
+                    <span class="inline">Fresh Smoothie &<br>Summer Juice</span>
+                  </h2>
+                  <p class="mb-2 md:mb-6 text-gray-600">Best Selling Summer Juice With Natural Extracts.</p>
+                </div>
+                <a href="product.html" class="border border-gray-500 rounded-sm py-2 px-4 w-fit text-sm">SHOP NOW</a>
+              </div>
+            </div>
+            <!-- Slide 2 -->
+            <div 
+              class="relative flex-shrink-0 flex flex-col md:flex-row items-center h-full w-full md:w-1/3 px-[5vw] py-[5vh] md:px-[7vw] md:py-[14vh] bg-blue-100 rounded-[12px]"
+            >
+              <img 
+                src="src/assets/product-showcase/slide2.png"
+                class="absolute right-0 bottom-0 h-[39vh] md:h-[67.6vh] max-h-[566px] min-h-[169.8px] w-auto max-w-[45%] object-contain z-10 pointer-events-none select-none" alt="">
+              <div class="flex flex-col justify-between h-full w-full z-20">
+                <div class="text-orange-400 mb-2 text-md md:text-2xl font-serif font-light">100% Organic</div>
+                <div>
+                  <h2 class="text-3xl md:text-5xl font-bold mb-2 md:mb-4 font-sans">
+                    <span class="inline">Tropical Mango <br> Smoothie</span>
+                  </h2>
+                  <p class="mb-2 md:mb-6 text-gray-600">Sweet, rich & naturally grown mango.</p>
+                </div>
+                <a href="product.html" class="border border-gray-500 rounded-sm py-2 px-4 w-fit text-sm">SHOP NOW</a>
+              </div>
+            </div>
+            <!-- Slide 3 -->
+            <div 
+              class="relative flex-shrink-0 flex flex-col md:flex-row items-center h-full w-full md:w-1/3 px-[5vw] py-[5vh] md:px-[7vw] md:py-[14vh] bg-blue-100 rounded-[12px]"
+            >              
+              <img 
+                src="src/assets/product-showcase/slide3.png"
+                class="absolute right-0 bottom-0 h-[24vh] md:h-[41.6vh] max-h-[566px] min-h-[169.8px] w-auto max-w-[58.5%] object-contain z-10 pointer-events-none select-none" alt="">
+              <div class="flex flex-col justify-between h-full w-full z-20">
+                <div class="text-orange-400 mb-2 text-md md:text-2xl font-serif font-light">100% Vegan</div>
+                <div>
+                  <h2 class="text-3xl md:text-5xl font-bold mb-4 font-sans">
+                    <span class="inline">Strawberry <br> Delight</span>
+                  </h2>
+                  <p class="mb-2 md:mb-6 text-gray-600">No sugar added, just natural fruit flavor.</p>
+                </div>
+                <a href="product.html" class="border border-gray-500 rounded-sm py-2 px-4 w-fit text-sm">SHOP NOW</a>
+              </div>
+            </div>
+          </div>
+          <!-- ● Indicator -->
+          <div class="absolute bottom-3 md:bottom-5 left-1/2 transform -translate-x-1/2 flex gap-2" id="indicators">
+            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+            <span class="w-3 h-3 rounded-full bg-white opacity-50"></span>
+            <span class="w-3 h-3 rounded-full bg-white opacity-50"></span>
+          </div>
+        </section>
+        <!-- Product Showcase Right Top（上段）-->
+        <div
+          class="col-span-1 md:col-span-4 row-span-1 md:row-span-1 min-h-[200px] md:min-h-[300px] h-auto py-[3vh] md:py-[6vh] px-[3vw] mb-4 md:mb-0 rounded-[12px]"
+          style="
+            background-image: url('src/assets/product-showcase/right-top.png'), url('src/assets/product-showcase/rectangle5.png');            
+            background-repeat: no-repeat, no-repeat;
+            background-size: 100% auto, cover;
+            background-position: right bottom, left top;
+          "
+        >
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <p class="font-serif font-light text-2xl md:text-3xl">20% Off</p>
+              <div class="flex items-center text-black">
+                <hr class="w-10 md:w-12 border-black">
+                <p class="font-sans tracking-widest text-xs uppercase">SALE</p>
+              </div>
+            </div>
+            <p id="category-title" class="text-2xl md:text-3xl font-bold font-sans">Fruits & Vegetables</p>
+            <a href="#category-section" class="w-fit text-sm md:text-md">Shop The Category →</a>
+          </div>
+        </div>
+        <!-- Product Showcase Right Bottom（下段）-->
+        <div
+          class="col-span-1 md:col-span-4 row-span-1 md:row-span-1 min-h-[200px] md:min-h-[300px] h-auto py-[3vh] md:py-[6vh] px-[3vw] mb-4 md:mb-0 rounded-[12px]"
+          style="
+            background-image: url('src/assets/product-showcase/right-bottom.png'), url('src/assets/product-showcase/rectangle6.png');            
+            background-repeat: no-repeat, no-repeat;
+            background-size: 100% auto, cover;
+            background-position: right bottom, left top;
+          "
+        >          
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <p class="font-georgia font-light text-2xl md:text-3xl">15% Off</p>
+              <div class="flex items-center text-black">
+                <hr class="w-10 md:w-12 border-black">
+                <p class="font-sans tracking-widest text-xs uppercase">SALE</p>
+              </div>
+            </div>
+            <p class="text-2xl md:text-3xl font-bold font-sans">Breads & Sweets</p>
+            <a href="#category-section" class="w-fit text-sm md:text-md">Shop The Category →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Category Section -->
+    <section id="category-section" class="slider-section relative w-full bg-white py-[10vh] px-[5vw]">
+      <!-- Title & Arrows -->
+      <div class="flex flex-col md:flex-row justify-between items-center w-full mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-0">Category</h2>
+        <div class="flex items-center">
+          <p class="w-fit mr-6 md:mr-12 text-gray-500 text-sm md:text-base flex items-center gap-1">
+            View All Categories
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 12H3.75m13.5 0l-4.5-4.5m4.5 4.5l-4.5 4.5" />
+            </svg>
+          </p>          
+          <div class="flex space-x-2">
+            <button class="slider-left bg-gray-200 text-black px-3 py-1 rounded text-lg">&lt;</button>
+            <button class="slider-right bg-orange-400 text-black px-3 py-1 rounded text-lg">&gt;</button>
+          </div>
+        </div>
+      </div>
+      <!-- Display Area (overflow hidden) -->
+      <div class="overflow-hidden w-full mx-auto">
+        <ul
+          class="slider-list w-full flex transition-transform duration-300 ease-in-out space-x-[2vw] transform 
+          translate-x-0 p-[2vw]"
+          data-visible="6"
+        >
+          <!-- Category Cards -->
+          <a href="product.html?category=Fruits%20%26%20Veges" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/broccoli.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-gray-700 font-semibold text-sm md:text-base">Fruits & Veges</p>
+          </a>
+          <a href="product.html?category=Breads%20%26%20Sweets" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/breadbaguette.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-gray-700 font-semibold text-sm md:text-base">Breads & Sweets</p>
+          </a>
+          <a href="product.html?category=Wine%20Drinks" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/wineglass bottle.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-gray-700 font-semibold text-sm md:text-base">Wine Drinks</p>
+          </a>
+          <a href="product.html?category=Oil%20%26%20Ghee" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/oil-ghee.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-gray-700 font-semibold text-sm md:text-base">Oil & Ghee</p>
+          </a>
+          <a href="product.html?category=Raw%20Meat" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/raw-meat.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-gray-700 font-semibold text-sm md:text-base">Raw Meat</p>
+          </a>
+          <a href="product.html?category=Natural%20Herbs" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/bread-herb-flour.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-gray-700 font-semibold text-sm md:text-base">Natural Herbs</p>
+          </a>
+          <a href="product.html?category=Seafood" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/seafood.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-gray-700 font-semibold text-sm md:text-base">Seafood</p>
+          </a>
+          <a href="product.html?category=Non-Alcoholic%20Drinks" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/non-alcoholic-drinks.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-center text-gray-700 font-semibold text-xs md:text-base">Non-Alcoholic Drinks</p>
+          </a>
+          <a href="product.html?category=Seasonings" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/seasonings.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-gray-700 font-semibold text-sm md:text-base">Seasonings</p>
+          </a>
+          <a href="product.html?category=Snacks%20%26%20Confectionery" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/snacks.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-center text-gray-700 font-semibold text-xs md:text-base">Snacks &amp; Confectionery</p>
+          </a>
+          <a href="product.html?category=Dairy%20Products" class="category-l w-[calc(76vw/6)] min-w-[150px] h-[calc(76vw/6)] min-h-[150px] flex-shrink-0 flex flex-col items-center justify-center bg-white rounded-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] overflow-visible transition duration-300 ease-in-out hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+          <img src="src/assets/category/dairy.png" alt="picture" class="w-6 h-6 mb-[2vh]">
+            <p class="text-gray-700 font-semibold text-sm md:text-base">Dairy Products</p>
+          </a>
+        </ul>
+      </div>
+    </section>
+    <!-- Newly Arrived Brands Section -->
+    <section class="slider-section relative w-full py-[10vh] px-[5vw]">
+      <!-- Title & Arrows -->
+      <div class="flex flex-col md:flex-row justify-between items-center w-full mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-0">Newly Arrived Brands</h2>
+        <div class="flex items-center">
+          <p class="w-fit mr-6 md:mr-12 text-gray-500 text-sm md:text-base flex items-center gap-1">
+            View All Categories
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 12H3.75m13.5 0l-4.5-4.5m4.5 4.5l-4.5 4.5" />
+            </svg>
+          </p>          
+          <div class="flex space-x-2">
+            <button class="slider-left bg-gray-200 text-black px-3 py-1 rounded text-lg">&lt;</button>
+            <button class="slider-right bg-orange-400 text-black px-3 py-1 rounded text-lg">&gt;</button>
+          </div>
+        </div>
+      </div>
+      <!-- Product List -->
+      <div class="overflow-hidden">
+        <div
+          class="slider-list w-full flex transition-transform duration-300 ease-in-out space-x-3 md:space-x-[2vw] p-[2vw] transform translate-x-0"
+          data-visible="4"
+        >
+          <!-- Product Card -->
+          <div class=" product-li md:h-[20vh] md:min-h-[150px] md:w-[calc(80vw/4)] md:min-w-[300px] flex-shrink-0 flex flex-col items-center justify-center p-3 md:p-4 bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg hover:shadow-lg transition mb-4 md:mb-0">
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center">
+              <img src="src/assets/newly-arrived-brands-section/rectangle85.png" alt="Amber Jar" class="h-auto w-auto object-contain">
+              <div>
+                <p class="text-gray-700 font-semibold text-base md:text-lg">Amber Jar</p>
+                <p class="text-xs md:text-sm text-gray-500">Honey Best Nectar <br> You Wish To Get</p>
+              </div>
+            </div>
+          </div>
+          <div class=" product-li md:h-[20vh] md:min-h-[150px] md:w-[calc(80vw/4)] md:min-w-[300px] flex-shrink-0 flex flex-col items-center justify-center p-3 md:p-4 bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg hover:shadow-lg transition mb-4 md:mb-0">
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center">
+              <img src="src/assets/newly-arrived-brands-section/rectangle87.png" alt="Pure Herb" class="h-auto w-auto w-full md:w-auto object-contain">
+              <div>
+                <p class="text-gray-700 font-semibold text-base md:text-lg">Pure Herb</p>
+                <p class="text-xs md:text-sm text-gray-500">Honey Best Nectar <br> You Wish To Get</p>
+              </div>
+            </div>
+          </div>
+          <div class=" product-li md:h-[20vh] md:min-h-[150px] md:w-[calc(80vw/4)] md:min-w-[300px] flex-shrink-0 flex flex-col items-center justify-center p-3 md:p-4 bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg hover:shadow-lg transition mb-4 md:mb-0">
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center">
+              <img src="src/assets/newly-arrived-brands-section/rectangle89.png" alt="Tuna" class="h-auto w-auto w-full md:w-auto object-contain">
+              <div>
+                <p class="text-gray-700 font-semibold text-base md:text-lg">Tuna</p>
+                <p class="text-xs md:text-sm text-gray-500">Where's Tuna? <br> Tuna, Clear Choice!</p>
+              </div>
+            </div>
+          </div>
+          <div class=" product-li md:h-[20vh] md:min-h-[150px] md:w-[calc(80vw/4)] md:min-w-[300px] flex-shrink-0 flex flex-col items-center justify-center p-3 md:p-4 bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg hover:shadow-lg transition mb-4 md:mb-0">
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center">
+              <img src="src/assets/newly-arrived-brands-section/rectangle91.png" alt="Hotz" class="h-auto w-auto w-full md:w-auto object-contain">
+              <div>
+                <p class="text-gray-700 font-semibold text-base md:text-lg">Hotz</p>
+                <p class="text-xs md:text-sm text-gray-500">The One Junk Food <br> That's Natural</p>
+              </div>
+            </div>
+          </div>
+          <div class=" product-li md:h-[20vh] md:min-h-[150px] md:w-[calc(80vw/4)] md:min-w-[300px] flex-shrink-0 flex flex-col items-center justify-center p-3 md:p-4 bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg hover:shadow-lg transition mb-4 md:mb-0">
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center">
+              <img src="src/assets/newly-arrived-brands-section/herbs.png" alt="Green Bloom" class="h-auto w-auto w-full md:w-auto object-contain">
+              <div>
+                <p class="text-gray-700 font-semibold text-base md:text-lg">Green Bloom</p>
+                <p class="text-xs md:text-sm text-gray-500">Fresh Herbs Packed <br> With Garden Flavor</p>
+              </div>
+            </div>
+          </div>
+          <div class=" product-li md:h-[20vh] md:min-h-[150px] md:w-[calc(80vw/4)] md:min-w-[300px] flex-shrink-0 flex flex-col items-center justify-center p-3 md:p-4 bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg hover:shadow-lg transition mb-4 md:mb-0">
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center">
+              <img src="src/assets/newly-arrived-brands-section/organic-snacks.png" alt="Nature Bites" class="h-auto w-auto w-full md:w-auto object-contain">
+              <div>
+                <p class="text-gray-700 font-semibold text-base md:text-lg">Nature Bites</p>
+                <p class="text-xs md:text-sm text-gray-500">Organic Snacks That <br> Keep You Going</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Trending Products Section -->
+    <section class="py-[10vh] px-[5vw]">
+      <div class="flex flex-col md:flex-row md:justify-between">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-0">Trending Products</h2>
+        <ul class="filter flex flex-wrap md:flex-nowrap space-x-4 md:space-x-8 mb-6 md:mb-0">
+          <li data-filter="all" class="cursor-pointer text-black font-bold py-2 md:py-4 border-b-2 md:border-b-4 border-yellow-400 text-sm md:text-base">ALL</li>
+          <li data-filter="fruits-veges" class="cursor-pointer text-gray-400 py-2 md:py-4 border-b-2 md:border-b-4 border-transparent text-sm md:text-base">FRUITS & VEGES</li>
+          <li data-filter="juices" class="cursor-pointer text-gray-400 py-2 md:py-4 border-b-2 md:border-b-4 border-transparent text-sm md:text-base">JUICES</li>
+          <li data-filter="bread-sweets" class="cursor-pointer text-gray-400 py-2 md:py-4 border-b-2 md:border-b-4 border-transparent text-sm md:text-base">BREAD & SWEETS</li>
+          <li data-filter="oil-ghee" class="cursor-pointer text-gray-400 py-2 md:py-4 border-b-2 md:border-b-4 border-transparent text-sm md:text-base">OIL & GHEE</li>
+          <li data-filter="raw-meats" class="cursor-pointer text-gray-400 py-2 md:py-4 border-b-2 md:border-b-4 border-transparent text-sm md:text-base">RAW MEATS</li>
+          <li data-filter="natural-herbs" class="cursor-pointer text-gray-400 py-2 md:py-4 border-b-2 md:border-b-4 border-transparent text-sm md:text-base">NATURAL HERBS</li>
+        </ul>
+      </div>
+      <hr class="w-full">
+      <div class="slider-list w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 py-12 gap-6 md:gap-10 lg:gap-12" id="Trending-Products-list">
+        <!-- Product Card -->
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/Sunstar Fresh Melon Juice.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Sunstar Fresh Melon Juice</p>
+            <p class="text-xs md:text-sm">1UNIT ★4.5</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="18.00">$18.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2 group">
+              <p class="addToCartText text-gray-500 text-sm md:text-base transition-colors">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4 transition duration-200" id="cart-icon">
+            </button>          
+          </div>
+        </div>
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/tomatoes1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Fresh Local Tomatos</p>
+            <p class="text-xs md:text-sm">1 KG ★4.0</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="5.00">$5.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2">
+              <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">              
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/cucumber1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Fresh Cucumber</p>
+            <p class="text-xs md:text-sm">1 KG ★4.5</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="6.00">$6.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2 group">
+              <p class="addToCartText text-gray-500 text-sm md:text-base transition-colors">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4 transition duration-200" id="cart-icon">
+            </button>          
+          </div>
+        </div>
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/tomatoketchup1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Heinz Tomato Ketchup</p>
+            <p class="text-xs md:text-sm">1 BOT ★5.0</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="9.00">$9.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2 group">
+              <p class="addToCartText text-gray-500 text-sm md:text-base transition-colors">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4 transition duration-200" id="cart-icon">
+            </button>          
+          </div>
+        </div>
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/avocado1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Local Avocado</p>
+            <p class="text-xs md:text-sm">1 PCS ★3.5</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="12.00">$12.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2 group">
+              <p class="addToCartText text-gray-500 text-sm md:text-base transition-colors">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4 transition duration-200" id="cart-icon">
+            </button>          
+          </div>
+        </div>
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/biscuits1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Munch Crunchy Cookies</p>
+            <p class="text-xs md:text-sm">1 UNIT ★4.5</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="8.00">$8.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2">
+            <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">              
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/bananas1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Fresh Bananas</p>
+            <p class="text-xs md:text-sm">1 KG ★4.0</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="10.00">$10.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2">
+            <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">              
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/orange-juice1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Fresh Orange juice</p>
+            <p class="text-xs md:text-sm">1 UNIT ★4.5</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="12.00">$12.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2">
+            <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">              
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/milk1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Pure Dairy Milk</p>
+            <p class="text-xs md:text-sm">1 UNIT ★5.0</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="8.00">$8.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2">
+            <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">              
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col w-[calc(78vw/5)] min-w-[230px] max-w-[70vw] aspect-[3/4] bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="juice">
+          <div class="relative">
+            <img src="src/assets/trending-products-section/raspberries1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+            <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="mt-4 flex-start">
+            <p class="text-orange-400 text-base md:text-lg">Raspberries</p>
+            <p class="text-xs md:text-sm">1 KG ★3.5</p>
+            <p class="mt-2 font-semibold text-base md:text-lg" data-price="14.00">$14.00</p>
+          </div>
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center justify-center space-x-2 md:space-x-4">
+              <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+              <span class="quantity text-lg font-medium">0</span>
+              <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+            </div>
+            <button class="cart-btn addToCartBtn flex items-center space-x-2">
+            <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">              
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Top Offered Products -->
+    <section class="slider-section relative w-full py-16 md:py-[10vh] px-[5vw]">
+      <!-- Title & Arrows -->
+      <div class="flex flex-col md:flex-row justify-between items-center w-full mb-6">
+        <div class="flex flex-col md:flex-row items-start md:items-center w-full md:w-auto">
+          <h2 class="text-2xl md:text-3xl font-bold">Top Offered Products</h2>
+          <!-- Countdown Timerー -->
+          <div id="countdown" class="flex items-center bg-yellow-400 text-black rounded-md mt-4 md:mt-0 md:ml-20 px-4 py-2 text-xs md:text-sm font-medium space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span id="time">Expires In: --hr : --min : --s</span>
+          </div>
+        </div>
+        <!-- Arrows -->
+        <div class="flex space-x-2 mt-4 md:mt-0">
+          <button class="slider-left bg-gray-200 text-black px-3 py-1 rounded text-lg">&lt;</button>
+          <button class="slider-right bg-orange-400 text-black px-3 py-1 rounded text-lg">&gt;</button>
+        </div>
+      </div>
+      <!-- Display Area (hide overflow content) -->
+      <div class="overflow-hidden w-full">
+        <ul class="slider-list flex transition-transform duration-300 ease-in-out transform translate-x-0 space-x-[2vw] p-[2vw]">
+          <!-- Each Category Card -->
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/top-offered-products/pacific-barista-beverage.png" alt="picture" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <p class="absolute top-4 left-4 text-xs md:text-sm bg-[#A3BF4C] text-white rounded px-2 py-1">-25%</p>
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Pacific Barista Beverage</p>
+              <p class="text-xs md:text-sm">1 UNIT ★4.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 line-through text-xs md:text-sm">$12.00</span>
+                <span class="text-black font-bold text-base md:text-lg" data-price="8.00">$8.00</span>
+              </div>
+              <p class="text-orange-400 text-xs md:text-sm">Sold: 30/40</p>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <!-- カウンター -->
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">+</button>
+              </div>
+              <!-- カート追加 -->
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/top-offered-products/kombucha-local-lilikoi.png" alt="picture" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <p class="absolute top-4 left-4 text-xs md:text-sm bg-[#A3BF4C] text-white rounded px-2 py-1">-25%</p>
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Kombucha Local Lilikoi</p>
+              <p class="text-xs md:text-sm">1 UNIT ★4.0</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 line-through text-xs md:text-sm">$12.00</span>
+                <span class="text-black font-bold text-base md:text-lg" data-price="6.00">$6.00</span>
+              </div>
+              <p class="text-orange-400 text-xs md:text-sm">Sold: 9/25</p>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/top-offered-products/cheese-flavoured-lays.png" alt="picture" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <p class="absolute top-4 left-4 text-xs md:text-sm bg-[#A3BF4C] text-white rounded px-2 py-1">-25%</p>
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Cheese Flavoured Lays</p>
+              <p class="text-xs md:text-sm">1 UNIT ★4.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 line-through text-xs md:text-sm">$12.00</span>
+                <span class="text-black font-bold text-base md:text-lg" data-price="8.00">$8.00</span>
+              </div>
+              <p class="text-orange-400 text-xs md:text-sm">Sold: 12/60</p>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <!-- Counter -->
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">+</button>
+              </div>
+              <!-- Add to Basket -->
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/top-offered-products/oat-milk-barista.png" alt="picture" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <p class="absolute top-4 left-4 text-xs md:text-sm bg-[#A3BF4C] text-white rounded px-2 py-1">-25%</p>
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Oat Milk Barista</p>
+              <p class="text-xs md:text-sm">1 UNIT ★5.0</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 line-through text-xs md:text-sm">$8.00</span>
+                <span class="text-black font-bold text-base md:text-lg" data-price="5.00">$5.00</span>
+              </div>
+              <p class="text-orange-400 text-xs md:text-sm">Sold: 12/35</p>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/top-offered-products/dr.-raw-relax-hearts.png" alt="picture" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <p class="absolute top-4 left-4 text-xs md:text-sm bg-[#A3BF4C] text-white rounded px-2 py-1">-25%</p>
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Dr. Raw Relax Hearts</p>
+              <p class="text-xs md:text-sm">1 UNIT ★3.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 line-through text-xs md:text-sm">$12.00</span>
+                <span class="text-black font-bold text-base md:text-lg" data-price="8.00">$8.00</span>
+              </div>
+              <p class="text-orange-400 text-xs md:text-sm">Sold: 5/25</p>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/top-offered-products/orange.png" alt="picture" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <p class="absolute top-4 left-4 text-xs md:text-sm bg-[#A3BF4C] text-white rounded px-2 py-1">-25%</p>
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Sunstar Fresh Orange</p>
+              <p class="text-xs md:text-sm">1UNIT ★4.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 line-through text-xs md:text-sm">$12.00</span>
+                <span class="text-black font-bold text-base md:text-lg" data-price="8.00">$8.00</span>
+              </div>
+              <p class="text-orange-400 text-xs md:text-sm">Sold: 30/40</p>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/top-offered-products/apple.png" alt="picture" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <p class="absolute top-4 left-4 text-xs md:text-sm bg-[#A3BF4C] text-white rounded px-2 py-1">-25%</p>
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Sunstar Fresh Apple</p>
+              <p class="text-xs md:text-sm">1UNIT ★4.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 line-through text-xs md:text-sm">$12.00</span>
+                <span class="text-black font-bold text-base md:text-lg" data-price="8.00">$8.00</span>
+              </div>
+              <p class="text-orange-400 text-xs md:text-sm">Sold: 30/40</p>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg  flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- Registration Section -->
+    <section class="flex flex-col md:flex-row h-auto md:h-[75vh] py-[15vh] my-8 md:my-[10vh] px-4 md:px-[13vw] mx-[5vw] justify-between bg-blue-100">
+      <div class="flex flex-col justify-between mb-8 md:mb-0 md:h-[32vh] md:w-1/2">
+        <h2 class="text-orange-500 text-3xl md:text-5xl font-bold mb-2">
+          <span class="text-black">GET</span> 20% Discount
+        </h2>
+        <h2 class="text-black text-3xl md:text-5xl font-bold mb-0">On Your First</h2>
+        <h2 class="text-black text-3xl md:text-5xl font-bold mb-4">Purchase</h2>
+        <div class="text-gray-400 text-sm md:text-base">
+          <p class="h-auto md:[6vh] md:w-[22vw] text-[18px] leading-[2.25] tracking-[0.02em]">Just Sign Up & register now to become a member of Templates Jungle.</p>
+        </div>
+      </div>
+      <!-- Right Form -->
+      <form  id="register-form" class="flex flex-col md:h-[calc(75vh-248px)] justify-between w-full md:w-auto">
+        <div class="mb-4">
+          <p class="mb-2 md:mb-4">Email address</p>
+          <input
+            name="email"
+            type="text"
+            placeholder="templatesjungle@gmail.com"
+            class="bg-gray-100 h-12 md:h-[6vh] w-full md:w-[26vw] py-2 md:pb-[1vh] px-4 md:px-[1vw] rounded-lg"
+          >
+        </div>
+        <div class="mb-4">
+          <p class="mb-2 md:mb-4">Password</p>
+          <input
+            name="password"
+            type="password"
+            placeholder="Enter password"
+            class="bg-gray-100 h-12 md:h-[6vh] w-full md:w-[26vw] py-2 md:py-[1vh] px-4 md:px-[1vw] rounded-lg"
+          >
+        </div>
+        <div class="mb-4">
+          <p class="mb-2 md:mb-4">Repeat password</p>
+          <input
+            name="repeat"
+            type="password"
+            placeholder="Repeat password"
+            class="bg-gray-100 h-12 md:h-[6vh] w-full md:w-[26vw] py-2 md:py-[1vh] px-4 md:px-[1vw] rounded-lg"
+          >
+        </div>
+        <button type="submit" name="register" class="bg-black text-white mt-6 md:mt-10 h-14 md:h-[7vh] w-full md:w-[26vw] rounded-lg">REGISTER IT NOW</button>
+      </form>
+    </section>
+    <!-- Best Selling Products Section -->
+    <section class="slider-section relative w-full py-16 md:py-24 px-4 md:px-[5vw]">
+      <!-- Title & Arrows -->
+      <div class="flex flex-col md:flex-row justify-between items-center w-full mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-0">Best Selling Products</h2>
+        <!-- Arrows -->
+        <div class="flex space-x-2">
+          <button class="slider-left bg-gray-200 text-black px-3 py-1 rounded text-lg">&lt;</button>
+          <button class="slider-right bg-orange-400 text-black px-3 py-1 rounded text-lg">&gt;</button>
+        </div>
+      </div>
+      <!-- Display Area (overflow hidden) -->
+      <div class="overflow-hidden w-full">
+        <ul
+          class="slider-list flex transition-transform duration-300 ease-in-out transform translate-x-0 space-x-[2vw] p-[2vw]"
+        >
+          <!-- Product Card -->
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/best-selling-products-section/jar-34-1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Amber Pure Honey</p>
+              <p class="text-xs md:text-sm">1 UNIT ★4.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="18.00">$18.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+              <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+              <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/best-selling-products-section/avocado1.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Fresh Local Avocado</p>
+              <p class="text-xs md:text-sm">1 KG ★4.0</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="10.00">$10.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/best-selling-products-section/amber-pure-honey.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Pharma Cashew Butter</p>
+              <p class="text-xs md:text-sm">1 UNIT ★4.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="19.00">$19.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/best-selling-products-section/milk 2.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Pure Dairy Milk</p>
+              <p class="text-xs md:text-sm">1 UNIT ★5.0</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="8.00">$8.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/best-selling-products-section/suzane-creamy-cupcake.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Suzane Creamy Cupcake</p>
+              <p class="text-xs md:text-sm">1 UNIT ★3.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="14.00">$14.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/best-selling-products-section/tofu.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Premium Soy Tofu</p>
+              <p class="text-xs md:text-sm">1 BLOCK ★4.3</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="4.00">$4.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/best-selling-products-section/brown-rice.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Organic Brown Rice</p>
+              <p class="text-xs md:text-sm">1 KG ★4.8</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="7.50">$7.50</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>    
+    <!-- Just Landed Items Section -->
+    <section class="slider-section relative w-full py-16 md:py-24 px-4 md:px-[5vw]">
+      <!-- Title & Arrows -->
+      <div class="flex flex-col md:flex-row justify-between items-center w-full mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-0">Just Landed Items</h2>
+        <!-- Arrows -->
+        <div class="flex space-x-2">
+          <button class="slider-left bg-gray-200 text-black px-3 py-1 rounded text-lg">&lt;</button>
+          <button class="slider-right bg-orange-400 text-black px-3 py-1 rounded text-lg">&gt;</button>
+        </div>
+      </div>
+    
+      <!-- Display Area (overflow hidden) -->
+      <div class="overflow-hidden w-full">
+        <ul
+          class="slider-list flex transition-transform duration-300 ease-in-out transform translate-x-0 space-x-[2vw] p-[2vw]"
+        >
+          <!-- Product Card -->
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/just-landed-items-section/jelly-beans-exocitcs.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Jelly Beans Exocitcs</p>
+              <p class="text-xs md:text-sm">1 UNIT ★4.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="18.00" data-price="18.00">$18.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/just-landed-items-section/growers-cider.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Growers Cider</p>
+              <p class="text-xs md:text-sm">1 UNIT ★4.0</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span id="cart-total" class="text-gray-400 text-xs md:text-sm" data-price="5.00">$5.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/just-landed-items-section/fresh-grapes.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Fresh Grapes</p>
+              <p class="text-xs md:text-sm">1 KG ★4.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="6.00">$6.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/just-landed-items-section/heinz-tomato-ketchup.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Heinz Tomato Ketchup</p>
+              <p class="text-xs md:text-sm">1 UNIT ★5.0</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="18.00">$9.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/just-landed-items-section/sunstar-fresh-melon juice.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Sunstar Fresh Melon Juice</p>
+              <p class="text-xs md:text-sm">1 UNIT ★3.5</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="12.00">$12.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/just-landed-items-section/almond-milk.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Organic Almond Milk</p>
+              <p class="text-xs md:text-sm">1 UNIT ★4.7</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="11.00">$11.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+          <li class="w-[calc(78vw/5)] min-w-[230px] aspect-[3/4] flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-3 md:p-4" data-category="vegetable">
+            <div class="relative">
+              <img src="src/assets/just-landed-items-section/blueberries-parfait.png" alt="Product" class="h-40 md:h-56 w-full object-cover rounded-md bg-[#f8f8f8]">
+              <button class="favorite-btn absolute top-4 right-4 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-400" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="mt-4 flex-start">
+              <p class="text-orange-400 text-base md:text-lg">Blueberry Yogurt Parfait</p>
+              <p class="text-xs md:text-sm">1 CUP ★4.2</p>
+              <div class="flex items-center space-x-2 mt-2">
+                <span class="text-gray-400 text-xs md:text-sm" data-price="7.00">$7.00</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-auto">
+              <div class="flex items-center justify-center space-x-2 md:space-x-4">
+                <button class="decrement bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">-</button>
+                <span class="quantity text-lg font-medium">0</span>
+                <button class="increment bg-white text-gray-700 border size-6 hover:bg-gray-300 text-lg flex items-center justify-center font-bold">+</button>
+              </div>
+              <button class="addToCartBtn flex items-center space-x-2">
+                <p class="addToCartText text-gray-500 text-sm md:text-base">Add To Cart</p>
+                <img src="src/assets/trending-products-section/add-to-cart.png" alt="picture" class="w-4 h-4">                
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- Latest Articles Section -->
+    <section id="latest-articles" class="py-16 md:py-24 px-4 mx-[5vw]">
+      <div class="flex flex-col md:flex-row justify-between items-center md:items-start mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-0">Our Latest Articles</h2>
+        <button type="button" name="Articles" class="self-end md:self-auto text-sm md:text-base">Read All Articles →</button>
+      </div>
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-[2vw] p-[2vw]">
+        <!-- Article Card -->
+        <li class="md:w-[26vw] h-auto flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-4 md:p-6 mb-6 md:mb-0" data-category="vegetable">
+          <div class="relative">
+            <img src="src/assets/latest-articles-section/latest-articles-section-1.png" alt="Article Image" class="h-40 md:h-[34vh] w-full object-cover rounded-md">
+          </div>
+          <div class="mt-4">
+            <p class="flex items-center space-x-2 text-gray-700 text-xs md:text-base">
+              <img src="src/assets/latest-articles-section/latest-articles-section-4.png" class="">
+              <span class="text-[#9D9D9D]">12 Jan, 2021</span>
+              <span class="inline-block h-4 w-px bg-[#9D9D9D]"></span>
+              <img src="src/assets/latest-articles-section/latest-articles-section-5.png">
+              <span class="text-[#9D9D9D]">15 Min</span>
+            </p>
+            <p class="h-auto md:w-[22vw] font-semibold leading-[1.77] tracking-[0em] mb-[1vh] text-black mt-2 text-base md:text-[24px]">Right Way To Preserve The Fruits & Other Organics</p>
+            <p class="h-auto ms:w-[22vw] font-['Open_Sans'] leading-[2.21] tracking-[0.02em] text-xs md:text-[16px] text-[#747474]">Lorem Ipsum Dolor Sit Amet, Consectetur Adipi Elit.Aliquet Eleifend Viverra Enim Tincidunt Donec Quam. A in Arcu, Hendrerit Neque Dolor Morbi</p>
+          </div>
+        </li>
+        <!-- Article Card -->
+        <li class="md:w-[26vw] h-auto flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-4 md:p-6 mb-6 md:mb-0" data-category="vegetable">
+          <div class="relative">
+            <img src="src/assets/latest-articles-section/latest-articles-section-2.png" alt="Article Image" class="h-40 md:h-[34vh] w-full object-cover rounded-md">
+          </div>
+          <div class="mt-4">
+            <p class="flex items-center space-x-2 text-gray-700 text-xs md:text-base">
+              <img src="src/assets/latest-articles-section/latest-articles-section-4.png">
+              <span class="text-[#9D9D9D]">12 Jan, 2021</span>
+              <span class="inline-block h-4 w-px bg-[#9D9D9D]"></span>
+              <img src="src/assets/latest-articles-section/latest-articles-section-5.png">
+              <span class="text-[#9D9D9D]">15 Min</span>
+            </p>
+            <p class="h-auto md:w-[22vw] font-semibold leading-[1.77] tracking-[0em] mb-[1vh] text-black mt-2 text-base md:text-[24px]">Right Way To Preserve The Fruits & Other Organics</p>
+            <p class="h-auto md:w-[22vw] font-['Open_Sans'] leading-[2.21] tracking-[0.02em] text-xs md:text-[16px] text-[#747474]">Lorem Ipsum Dolor Sit Amet, Consectetur Adipi Elit. Aliquet Eleifend Viverra Enim Tincidunt Donec Quam.A in Arcu, Hendrerit Neque Dolor Morbi</p>
+          </div>
+        </li>
+        <!-- Article Card -->
+        <li class="md:w-[26vw] h-auto flex-shrink-0 flex flex-col bg-white shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] hover:brightness-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] rounded-lg p-4 md:p-6 mb-6 md:mb-0" data-category="vegetable">
+          <div class="relative">
+            <img src="src/assets/latest-articles-section/latest-articles-section-3.png" alt="Article Image" class="h-40 md:h-[34vh] w-full object-cover rounded-md">
+          </div>
+          <div class="mt-4">
+            <p class="flex items-center space-x-2 text-gray-700 text-xs md:text-base">
+              <img src="src/assets/latest-articles-section/latest-articles-section-4.png" class="">
+              <span class="text-[#9D9D9D]">12 Jan, 2021</span>
+              <span class="inline-block h-4 w-px bg-[#9D9D9D]"></span>
+              <img src="src/assets/latest-articles-section/latest-articles-section-5.png">
+              <span class="text-[#9D9D9D]">15 Min</span>
+            </p>
+            <p class="h-auto md:w-[22vw] font-semibold leading-[1.77] tracking-[0em] mb-[1vh] text-black mt-2 text-base md:text-[24px]">Right Way To Preserve The Fruits & Other Organics</p>
+            <p class="h-auto md:w-[22vw] font-['Open_Sans'] leading-[2.21] tracking-[0.02em] text-xs md:text-[16px] text-[#747474]">Lorem Ipsum Dolor Sit Amet, Consectetur Adipi Elit.Aliquet Eleifend Viverra Enim Tincidunt Donec Quam.A in Arcu, Hendrerit Neque Dolor Morbi</p>
+          </div>
+        </li>
+      </ul>
+    </section>  
+  </div>
+</body>
+</html>
