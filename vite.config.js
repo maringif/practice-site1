@@ -1,5 +1,9 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
-export default {
-  base: '/practice-site1/', 
-};
+export default defineConfig({
+  base: '/practice-site1/', // ← GitHub リポジトリ名と一致
+  plugins: [],
+  build: {
+    outDir: 'docs'
+  }
+});
