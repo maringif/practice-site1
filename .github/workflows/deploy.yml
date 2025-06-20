@@ -5,7 +5,7 @@ on:
     branches:
       - main # mainブランチにプッシュされたときに実行
 
-permissions: # ここが重要
+permissions: 
   contents: write
   pages: write
   id-token: write
