@@ -12,7 +12,7 @@
     <!-- Header -->
     <div id="header-placeholder" class="sticky top-0 z-50"></div>
     <script>
-      fetch("header.html")
+      fetch("/practice-site1/header.html")
         .then(response => response.text())
         .then(data => {
           document.getElementById("header-placeholder").innerHTML = data;
